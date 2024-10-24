@@ -4,6 +4,7 @@ Adopted from [this](https://github.com/salrashid123/grpc_xds)
 
 This is sample XDS server Application without Kubernetes and Envoy.
 The list of servers to load balance are specified in the `config.yaml` file.
+Checkout the [justfile](./justfile) for building and running the project.
 
 ## Steps
 
@@ -22,4 +23,4 @@ The list of servers to load balance are specified in the `config.yaml` file.
 4. Start the client `just run-client-with-xds`
 5. Observe that requests are routed to all three servers
 6. Bring down any of the server, and the requests to them should disappear after the next scan
-7. Bring down the the xds-server. The client should continue to send the requests to the last status.
+7. Bring down the xds-server. The client should continue to send the requests to the servers which were healthy in the last scan.
