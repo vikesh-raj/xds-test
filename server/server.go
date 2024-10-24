@@ -27,7 +27,7 @@ func (s *server) SayHello(ctx context.Context, in *echo.EchoRequest) (*echo.Echo
 }
 
 func (s *server) SayHelloStream(in *echo.EchoRequest, stream echo.EchoServer_SayHelloStreamServer) error {
-	log.Println("Got stream:  -->  ")
+	log.Println("Got stream:  --> ", in.Name)
 	stream.Send(&echo.EchoReply{Message: "Response 1: Hello " + in.Name})
 	stream.Send(&echo.EchoReply{Message: "Response 2: Hello " + in.Name})
 	return nil

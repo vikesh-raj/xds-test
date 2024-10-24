@@ -1,0 +1,11 @@
+name: echo-discovery-server
+scan-interval: 5
+services:
+  - name: echo
+    zone: local
+    full_name: /echo.EchoServer/SayHello
+    default_port: 50051
+    endpoints:
+      - :50051
+      - :50052
+      - :50053
